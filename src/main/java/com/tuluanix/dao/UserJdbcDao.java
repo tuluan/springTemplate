@@ -20,7 +20,7 @@ public class UserJdbcDao {
     public List<Map<String, Object>> getUserList(int pageNumber, int pageSize) {
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM SYS_USER LIMIT ?,?");
-        
+
         List<Map<String, Object>> result = jdbcTemplate.queryForList(sb.toString(), pageNumber * pageSize -1, pageSize);
         
         return result;
