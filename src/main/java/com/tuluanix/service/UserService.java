@@ -27,9 +27,6 @@ public class UserService {
     @Autowired
     private SysUserMapper sysUserMapper;
 
-    @Autowired
-    private Const consts;
-    
     public List<Map<String, Object>> getUserList(int pageNumber, int pageSize) {
         
 //        List<Map<String, Object>> userList = userDao.getUserList(pageNumber, pageSize);
@@ -53,7 +50,7 @@ public class UserService {
 //        boolean result = userDao.addUser(loginName, name, password, salt, sex, age);
         SysUser user = new SysUser();
 //        user.setLoginname(loginName);
-        user.setLoginname(consts.schemaLocal);
+        user.setLoginname(Const.SCHEMA_LOCAL);
         user.setName(name);
         user.setPassword(password);
         user.setSalt(salt);
