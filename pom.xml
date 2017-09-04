@@ -142,6 +142,21 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 如果需要让maven属性(如frofile中定义的profiles.active属性)在资源文件(如applicationContext.xml)也能被解析，则需要开启资源过滤 -->
+                <!--<filtering>true</filtering>-->
+                <excludes>
+                    <exclude>develop/*</exclude>
+                    <exclude>production/*</exclude>
+                    <exclude>test/*</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${profiles.active}</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
@@ -165,4 +180,28 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>develop</id>
+            <properties>
+                <profiles.active>develop</profiles.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <profiles.active>develop</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>develop</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
 </project>

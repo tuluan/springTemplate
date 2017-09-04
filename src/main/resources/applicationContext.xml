@@ -15,9 +15,24 @@
     <context:component-scan base-package="com.tuluanix">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations" value="classpath*:/jdbc.properties"/>
+
+    <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath*:/jdbc.properties</value>
+            </list>
+        </property>
     </bean>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties" ref="configProperties" />
+    </bean>
+    
+    <!--<bean id="const" class="com.tuluanix.utils.Const">-->
+        <!--<property name="SCHEMA_LOCAL">-->
+            <!--<value>${schema.local}</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+    
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close" lazy-init="false">
         <property name="driverClassName" value="${jdbc1.driverClass}"/>

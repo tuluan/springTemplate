@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.tuluanix.utils.Const;
 import org.apache.commons.codec.binary.Hex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,9 @@ public class UserService {
     
     @Autowired
     private SysUserMapper sysUserMapper;
+
+    @Autowired
+    private Const consts;
     
     public List<Map<String, Object>> getUserList(int pageNumber, int pageSize) {
         
@@ -48,7 +52,8 @@ public class UserService {
         
 //        boolean result = userDao.addUser(loginName, name, password, salt, sex, age);
         SysUser user = new SysUser();
-        user.setLoginname(loginName);
+//        user.setLoginname(loginName);
+        user.setLoginname(consts.schemaLocal);
         user.setName(name);
         user.setPassword(password);
         user.setSalt(salt);
