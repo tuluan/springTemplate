@@ -3,7 +3,7 @@ package com.tuluanix.mybatis.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.tuluanix.mybatis.dto.SysUser;
+import com.tuluanix.mybatis.domain.SysUser;
 
 public interface SysUserMapper {
     /**

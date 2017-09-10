@@ -1,4 +1,4 @@
-package com.tuluanix.mybatis.dto;
+package com.tuluanix.mybatis.domain;
 
 public class SysUser {
     /**

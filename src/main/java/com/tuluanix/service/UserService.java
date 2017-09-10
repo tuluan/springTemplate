@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tuluanix.dao.UserJdbcDao;
 import com.tuluanix.mybatis.dao.SysUserMapper;
-import com.tuluanix.mybatis.dto.SysUser;
+import com.tuluanix.mybatis.domain.SysUser;
 
 @Service
 public class UserService {
