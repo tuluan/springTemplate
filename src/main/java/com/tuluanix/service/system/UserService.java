@@ -1,4 +1,4 @@
-package com.tuluanix.service;
+package com.tuluanix.service.system;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -23,7 +23,7 @@ public class UserService {
 
     @Autowired
     private UserJdbcDao userDao;
-    
+
     @Autowired
     private SysUserMapper sysUserMapper;
 

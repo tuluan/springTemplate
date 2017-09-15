@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tuluanix.service.UserService;
+import com.tuluanix.service.system.UserService;
 import com.tuluanix.utils.StringUtil;
 
 @Controller
